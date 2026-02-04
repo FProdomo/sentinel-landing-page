@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel — Independent Bankability Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    /* Brand Direction 2: Modern Development Finance */
+    --deep-teal: #0D5C63;
+    --teal-medium: #247B7B;
+    --sage: #5F7161;
+    --terracotta: #A75D5D;
+    --warm-sand: #E8DDD2;
+    --off-white: #FAF8F5;
+    --charcoal: #2C2C2C;
+    --warm-gray: #6B6B6B;
+    --white: #FFFFFF;
+    
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --max-width: 1360px;
+    --section-padding: 120px;
+    --transition-base: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--charcoal);
+    background-color: var(--off-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--deep-teal);
+}
+
+h1 {
+    font-size: clamp(42px, 5.5vw, 64px);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    margin-bottom: 24px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+}
+
+h4 {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sage);
+}
+
+p {
+    color: var(--warm-gray);
+}
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Accent Bar */
+.accent-bar {
+    height: 3px;
+    width: 60px;
+    background: var(--terracotta);
+    margin-bottom: 24px;
+}
+
+.accent-bar-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Navigation */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: var(--off-white);
+    border-bottom: 1px solid var(--warm-sand);
+    z-index: 1000;
+    transition: all var(--transition-base);
+}
+
+.nav.scrolled {
+    background: var(--white);
+    box-shadow: 0 4px 30px rgba(13, 92, 99, 0.08);
+}
+
+.nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: -2px;
+    text-decoration: none;
+    align-self: center;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--deep-teal);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.nav-tagline {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--sage);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--warm-gray);
+    text-decoration: none;
+    transition: color var(--transition-base);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--terracotta);
+    transition: width var(--transition-base);
+}
+
+.nav-links a:hover {
+    color: var(--deep-teal);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-login {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--warm-gray);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.nav-login:hover {
+    color: var(--deep-teal);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary {
+    background: var(--deep-teal);
+    color: var(--off-white);
+    box-shadow: 0 2px 12px rgba(13, 92, 99, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--teal-medium);
+    box-shadow: 0 4px 20px rgba(13, 92, 99, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--deep-teal);
+    border: 2px solid var(--deep-teal);
+}
+
+.btn-secondary:hover {
+    background: var(--deep-teal);
+    color: var(--off-white);
+}
+
+.btn-white {
+    background: var(--white);
+    color: var(--deep-teal);
+}
+
+.btn-white:hover {
+    background: var(--off-white);
+    transform: translateY(-2px);
+}
+
+.btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-white:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Sections */
+section {
+    padding: var(--section-padding) 0;
+}
+
+.section-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+}
+
+.section-intro {
+    max-width: 700px;
+    margin: 0 auto 70px;
+    text-align: center;
+}
+
+.section-intro p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(165deg, var(--off-white) 0%, var(--warm-sand) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(13, 92, 99, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 560px;
+}
+
+.hero-content h1 {
+    margin-bottom: 28px;
+}
+
+.hero-content p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--charcoal);
+    margin-bottom: 40px;
+    max-width: 520px;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-visual {
+    position: relative;
+}
+
+.hero-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal-medium) 100%);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    box-shadow: 0 20px 60px rgba(13, 92, 99, 0.25);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.hero-video:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(13, 92, 99, 0.3);
+}
+
+.play-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-base);
+}
+
+.hero-video:hover .play-icon {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+.play-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--white);
+    margin-left: 4px;
+}
+
+.hero-video span {
+    font-size: 14px;
+    color: var(--warm-gray);
+    font-weight: 500;
+}
+
+/* Problem Section */
+.problem {
+    background: var(--white);
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.problem-card {
+    background: var(--off-white);
+    padding: 40px;
+    border-radius: 2px;
+    border-left: 3px solid var(--sage);
+    transition: all var(--transition-base);
+}
+
+.problem-card:hover {
+    box-shadow: 0 10px 40px rgba(13, 92, 99, 0.08);
+    transform: translateY(-4px);
+}
+
+.problem-card .icon {
+    width: 52px;
+    height: 52px;
+    background: var(--warm-sand);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.problem-card .icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--deep-teal);
+}
+
+.problem-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+}
+
+.problem-card p {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Solution Section */
+.solution {
+    background: linear-gradient(180deg, var(--off-white) 0%, var(--warm-sand) 100%);
+}
+
+.solution-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    position: relative;
+}
+
+.solution-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: calc(16.66% + 28px);
+    right: calc(16.66% + 28px);
+    height: 2px;
+    background: var(--warm-sand);
+}
+
+.solution-step {
+    text-align: center;
+}
+
+.step-number {
+    width: 72px;
+    height: 72px;
+    background: var(--deep-teal);
+    color: var(--off-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 auto 28px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(13, 92, 99, 0.2);
+}
+
+.solution-step h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+}
+
+.solution-step p {
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Framework Section */
+.framework {
+    background: var(--white);
+}
+
+.framework-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.framework-card {
+    background: var(--off-white);
+    padding: 36px 28px;
+    text-align: center;
+    border-radius: 2px;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.framework-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--terracotta);
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+}
+
+.framework-card:hover::before {
+    transform: scaleX(1);
+}
+
+.framework-card:hover {
+    box-shadow: 0 10px 40px rgba(13, 92, 99, 0.1);
+}
+
+.framework-card .icon {
+    width: 56px;
+    height: 56px;
+    background: var(--warm-sand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.framework-card .icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--deep-teal);
+}
+
+.framework-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+}
+
+.framework-card p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Audience Section */
+.audience {
+    background: var(--deep-teal);
+    position: relative;
+}
+
+.audience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.audience .section-intro {
+    position: relative;
+    z-index: 1;
+}
+
+.audience .section-label {
+    color: var(--terracotta);
+}
+
+.audience h2 {
+    color: var(--off-white);
+}
+
+.audience .section-intro p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.audience .accent-bar {
+    background: var(--terracotta);
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.audience-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 32px;
+    border-radius: 2px;
+    transition: all var(--transition-base);
+}
+
+.audience-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.audience-card .icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(167, 93, 93, 0.2);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.audience-card .icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--terracotta);
+}
+
+.audience-card h3 {
+    font-family: var(--font-display);
+    color: var(--off-white);
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.audience-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Team Section */
+.team {
+    background: linear-gradient(180deg, var(--off-white) 0%, var(--warm-sand) 100%);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.team-card {
+    background: var(--white);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(13, 92, 99, 0.06);
+    transition: all var(--transition-base);
+}
+
+.team-card:hover {
+    box-shadow: 0 12px 48px rgba(13, 92, 99, 0.12);
+    transform: translateY(-6px);
+}
+
+.team-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, var(--warm-sand) 0%, var(--sage) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='50' cy='50' r='40'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.team-photo-placeholder {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 600;
+    color: var(--white);
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+}
+
+.team-info {
+    padding: 32px;
+    border-top: 3px solid var(--terracotta);
+}
+
+.team-name {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--deep-teal);
+    margin-bottom: 6px;
+}
+
+.team-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--sage);
+    margin-bottom: 16px;
+}
+
+.team-bio {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--warm-gray);
+}
+
+/* Boundaries Section */
+.boundaries {
+    background: var(--white);
+}
+
+.boundaries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.boundaries-column {
+    background: var(--off-white);
+    border-radius: 2px;
+    padding: 44px;
+    border-top: 3px solid var(--deep-teal);
+}
+
+.boundaries-column:last-child {
+    border-top-color: var(--sage);
+}
+
+.boundaries-column h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--deep-teal);
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--warm-sand);
+}
+
+.boundaries-list {
+    list-style: none;
+}
+
+.boundaries-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    font-size: 15px;
+    color: var(--charcoal);
+    border-bottom: 1px solid var(--warm-sand);
+}
+
+.boundaries-list li:last-child {
+    border-bottom: none;
+}
+
+.boundaries-list li svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--deep-teal);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.boundaries-column:last-child .boundaries-list li svg {
+    stroke: var(--sage);
+}
+
+.boundaries-note {
+    max-width: 720px;
+    margin: 50px auto 0;
+    text-align: center;
+    font-size: 15px;
+    color: var(--warm-gray);
+    line-height: 1.8;
+}
+
+/* Engagement Section */
+.engagement {
+    background: linear-gradient(180deg, var(--off-white) 0%, var(--warm-sand) 100%);
+}
+
+.engagement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.engagement-card {
+    background: var(--white);
+    border-radius: 2px;
+    padding: 40px;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: 0 4px 24px rgba(13, 92, 99, 0.06);
+    transition: all var(--transition-base);
+}
+
+.engagement-card:hover {
+    box-shadow: 0 12px 48px rgba(13, 92, 99, 0.12);
+    transform: translateY(-4px);
+}
+
+.engagement-card h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--deep-teal);
+    margin-bottom: 8px;
+}
+
+.engagement-time {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--terracotta);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.engagement-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.engagement-usecase {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--sage);
+    padding-top: 18px;
+    border-top: 1px solid var(--warm-sand);
+}
+
+.engagement-note {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 15px;
+    color: var(--warm-gray);
+}
+
+/* CTA Section */
+.cta {
+    background: var(--deep-teal);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.cta .accent-bar {
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--terracotta);
+}
+
+.cta h2 {
+    color: var(--off-white);
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+}
+
+.cta-contact {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+}
+
+.cta-contact a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.cta-contact a:hover {
+    color: var(--white);
+}
+
+/* Footer */
+.footer {
+    background: var(--charcoal);
+    padding: 56px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-brand-group {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.footer-brand {
+    font-family: var(--font-display);
+    color: var(--off-white);
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.footer-tagline {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 36px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.footer-links a:hover {
+    color: var(--off-white);
+}
+
+.footer-contact {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: var(--off-white);
+}
+
+.footer-legal {
+    width: 100%;
+    text-align: center;
+    padding-top: 36px;
+    margin-top: 36px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 13px;
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.nav-toggle svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--deep-teal);
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.nav-toggle svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--deep-teal);
+}
+
+/* Large tablets - start reducing elements */
+@media (max-width: 1100px) {
+    .nav-links {
+        gap: 30px;
+    }
+    
+    .nav-links a {
+        font-size: 14px;
+    }
+    
+    .nav-actions .nav-login {
+        display: none;
+    }
+    
+    .btn-primary {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+/* Tablets - hide more elements */
+@media (max-width: 900px) {
+    .nav-tagline {
+        display: none;
+    }
+    
+    .nav-logo {
+        font-size: 26px;
+    }
+    
+    .nav-links {
+        gap: 24px;
+    }
+    
+    .nav-links a {
+        font-size: 13px;
+    }
+    
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    /* 2 columns on tablets for grids */
+    .team-grid,
+    .problem-grid,
+    .framework-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile - show hamburger only */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 80px;
+    }
+
+    /* Hide all navigation elements */
+    .nav-links {
+        display: none !important;
+    }
+
+    .nav-actions {
+        display: none !important;
+    }
+
+    /* Show hamburger menu */
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-tagline {
+        display: none;
+    }
+
+    .nav-logo {
+        font-size: 22px;
+    }
+
+    .nav-brand {
+        max-width: 150px;
+    }
+
+    .nav-inner {
+        padding: 0 16px;
+        justify-content: space-between;
+    }
+
+    /* Hero and other sections */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content .accent-bar {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-content p {
+        margin: 0 auto 40px;
+    }
+
+    .hero-ctas {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    /* ALL GRIDS TO 1 COLUMN ON MOBILE */
+    .problem-grid,
+    .solution-steps,
+    .framework-grid,
+    .audience-grid,
+    .engagement-grid,
+    .team-grid,
+    .boundaries-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .solution-steps::before {
+        display: none;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Very small mobile */
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 20px;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <span class="nav-logo">Sentinel</span>
+                <span class="nav-tagline">Independent Bankability Assessment</span>
+            </a>
+            <div class="nav-links">
+                <a href="#problem">Challenge</a>
+                <a href="#solution">Approach</a>
+                <a href="#framework">Framework</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="nav-login">Log In</a>
+                <a href="#contact" class="btn btn-primary">Request Assessment</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="accent-bar"></div>
+                <h1>Structured Credit Intelligence for Emerging Markets</h1>
+                <p>Sentinel delivers independent bankability assessments for agricultural commodity and energy companies operating in frontier and emerging markets — providing institutional lenders with the clarity they need to move forward.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">Request Assessment</a>
+                    <a href="#solution" class="btn btn-secondary">View Framework</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-video">
+                    <div class="play-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                    </div>
+                    <span>Watch 2-minute overview</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Section -->
+<section class="problem" id="problem">
+    <div class="container">
+        <div class="section-intro">
+            <div class="accent-bar accent-bar-center"></div>
+            <p class="section-label">The Challenge</p>
+            <h2>Why Emerging Market Lending Stalls</h2>
+            <p>For commodity and energy companies in emerging markets, access to credit remains constrained — not by opportunity, but by opacity.</p>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/>
+                    </svg>
+                </div>
+                <h3>Information Asymmetry</h3>
+                <p>Lenders lack standardised frameworks to evaluate governance, risk management, and ESG performance in unfamiliar operating environments.</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3>Due Diligence Burden</h3>
+                <p>Bespoke assessments for each opportunity create delays and inconsistency. Credit committees face variable-quality information across deals.</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+                    </svg>
+                </div>
+                <h3>Missed Opportunity</h3>
+                <p>Creditworthy companies struggle to demonstrate bankability. Well-run operations remain underlent while weaker borrowers absorb lender attention.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Section -->
+<section class="solution" id="solution">
+    <div class="container">
+        <div class="section-intro">
+            <div class="accent-bar accent-bar-center"></div>
+            <p class="section-label">Our Approach</p>
+            <h2>Clarity Through Structure</h2>
+            <p>Sentinel provides a consistent, evidence-based framework that transforms opacity into actionable credit intelligence.</p>
+        </div>
+        <div class="solution-steps">
+            <div class="solution-step">
+                <div class="step-number">1</div>
+                <h3>Structured Questionnaire</h3>
+                <p>Comprehensive assessment across Governance, Risk Management, Compliance, and ESG domains using standardised evaluation criteria.</p>
+            </div>
+            <div class="solution-step">
+                <div class="step-number">2</div>
+                <h3>Independent Analysis</h3>
+                <p>Expert evaluation with document verification, identifying material red flags and conditions that impact lending decisions.</p>
+            </div>
+            <div class="solution-step">
+                <div class="step-number">3</div>
+                <h3>Bankability Rating</h3>
+                <p>Clear A/B/C rating with executive summary, red flag report, and specific conditions for credit improvement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Framework Section -->
+<section class="framework" id="framework">
+    <div class="container">
+        <div class="section-intro">
+            <div class="accent-bar accent-bar-center"></div>
+            <p class="section-label">Assessment Framework</p>
+            <h2>Four Pillars of Bankability</h2>
+            <p>Our proprietary methodology evaluates companies across interconnected domains that collectively determine credit readiness.</p>
+        </div>
+        <div class="framework-grid">
+            <div class="framework-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+                    </svg>
+                </div>
+                <h3>Governance</h3>
+                <p>Board structure, ownership transparency, decision-making processes</p>
+            </div>
+            <div class="framework-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"/>
+                    </svg>
+                </div>
+                <h3>Risk Management</h3>
+                <p>Operational controls, financial hedging, contingency planning</p>
+            </div>
+            <div class="framework-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                    </svg>
+                </div>
+                <h3>Compliance</h3>
+                <p>Regulatory adherence, licensing, anti-corruption measures</p>
+            </div>
+            <div class="framework-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
+                    </svg>
+                </div>
+                <h3>ESG</h3>
+                <p>Environmental impact, social responsibility, sustainability practices</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team" id="team">
+    <div class="container">
+        <div class="section-intro">
+            <div class="accent-bar accent-bar-center"></div>
+            <p class="section-label">Leadership</p>
+            <h2>Our Founding Team</h2>
+            <p>Experienced professionals with deep expertise in development finance, credit analysis, and emerging market operations.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-photo">
+                    <span class="team-photo-placeholder">JS</span>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Jasper van Schaik</div>
+                    <div class="team-title">Founder & CEO</div>
+                    <p class="team-bio">Brief biography highlighting relevant experience in development finance, emerging markets, or institutional lending. Two to three sentences that establish credibility and expertise.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-photo">
+                    <span class="team-photo-placeholder">RP</span>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Richard Piechocki</div>
+                    <div class="team-title">ESG</div>
+                    <p class="team-bio">Brief biography highlighting relevant experience in operations, risk management, or agricultural/energy sectors. Two to three sentences that establish credibility and expertise.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-photo">
+                    <span class="team-photo-placeholder">MI</span>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Mugur Ionita</div>
+                    <div class="team-title">Tech</div>
+                    <p class="team-bio">Brief biography highlighting relevant experience in technology, data analytics, or financial systems. Two to three sentences that establish credibility and expertise.</p>
+                </div>
+            </div>
+			<div class="team-card">
+                <div class="team-photo">
+                    <span class="team-photo-placeholder">MD</span>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Mervijn Denie</div>
+                    <div class="team-title">Finance, Risk, Compliance</div>
+                    <p class="team-bio">Brief biography highlighting relevant experience in technology, data analytics, or financial systems. Two to three sentences that establish credibility and expertise.</p>
+                </div>
+            </div>
+			<div class="team-card">
+                <div class="team-photo">
+                    <span class="team-photo-placeholder">TP</span>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Thomas Penzkofer</div>
+                    <div class="team-title">Compliance, Operations</div>
+                    <p class="team-bio">Brief biography highlighting relevant experience in technology, data analytics, or financial systems. Two to three sentences that establish credibility and expertise.</p>
+                </div>
+            </div>
+			<div class="team-card">
+                <div class="team-photo">
+                    <span class="team-photo-placeholder">FP</span>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Francesco Prodomo</div>
+                    <div class="team-title">Product</div>
+                    <p class="team-bio">Brief biography highlighting relevant experience in technology, data analytics, or financial systems. Two to three sentences that establish credibility and expertise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Audience Section -->
+<section class="audience" id="audience">
+    <div class="container">
+        <div class="section-intro">
+            <div class="accent-bar accent-bar-center"></div>
+            <p class="section-label">Who We Serve</p>
+            <h2>Built for Institutional Lenders</h2>
+            <p>Our assessments serve the professionals making credit decisions in complex markets.</p>
+        </div>
+        <div class="audience-grid">
+            <div class="audience-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/>
+                    </svg>
+                </div>
+                <h3>Development Finance Institutions</h3>
+                <p>Screen potential borrowers efficiently with standardised assessments that align with institutional due diligence requirements.</p>
+            </div>
+            <div class="audience-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+                    </svg>
+                </div>
+                <h3>Trade Finance Banks</h3>
+                <p>Evaluate commodity trading counterparties with consistent methodology, reducing assessment time while improving risk visibility.</p>
+            </div>
+            <div class="audience-card">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"/>
+                    </svg>
+                </div>
+                <h3>Credit Committees</h3>
+                <p>Receive standardised, comparable assessments that support credit decisions. Reduce reliance on ad-hoc due diligence with variable quality.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Boundaries Section -->
+<section class="boundaries" id="boundaries">
+    <div class="container">
+        <div class="section-intro">
+            <div class="accent-bar accent-bar-center"></div>
+            <p class="section-label">Scope</p>
+            <h2>Clear Boundaries</h2>
+        </div>
+        <div class="boundaries-grid">
+            <div class="boundaries-column">
+                <h3>What Clients Receive</h3>
+                <ul class="boundaries-list">
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                        </svg>
+                        Bankability rating (A / B / C)
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                        </svg>
+                        Red flag summary
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                        </svg>
+                        Conditions for improvement
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                        </svg>
+                        Executive summary report
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                        </svg>
+                        Optional monitoring updates
+                    </li>
+                </ul>
+            </div>
+            <div class="boundaries-column">
+                <h3>What Remains Internal</h3>
+                <ul class="boundaries-list">
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                        </svg>
+                        Scoring methodology and weightings
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                        </svg>
+                        Analyst workspace and questionnaire logic
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                        </svg>
+                        Proprietary assessment frameworks
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                        </svg>
+                        Raw scoring data and internal notes
+                    </li>
+                    <li>
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                        </svg>
+                        Platform source code and infrastructure
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="boundaries-note">Clients receive actionable outputs. Methodology, scoring logic, and platform IP remain proprietary — ensuring consistency, objectivity, and commercial protection.</p>
+    </div>
+</section>
+
+<!-- Engagement Section -->
+<section class="engagement" id="engagement">
+    <div class="container">
+        <div class="section-intro">
+            <div class="accent-bar accent-bar-center"></div>
+            <p class="section-label">Engagement</p>
+            <h2>How We Work</h2>
+        </div>
+        <div class="engagement-grid">
+            <div class="engagement-card">
+                <h3>Rapid Screen</h3>
+                <div class="engagement-time">5–10 business days</div>
+                <p>Initial bankability assessment based on available documentation. Identifies major gaps and red flags early.</p>
+                <div class="engagement-usecase">Use case: Early-stage screening before origination commitment</div>
+            </div>
+            <div class="engagement-card">
+                <h3>Enhanced Due Diligence</h3>
+                <div class="engagement-time">2–4 weeks</div>
+                <p>Deeper assessment with expanded scope, additional verification, and detailed conditions analysis.</p>
+                <div class="engagement-usecase">Use case: Pre-credit committee review for shortlisted opportunities</div>
+            </div>
+            <div class="engagement-card">
+                <h3>Portfolio Monitoring</h3>
+                <div class="engagement-time">Quarterly or annual</div>
+                <p>Periodic reassessment for rated companies. Tracks remediation progress and updates bankability status.</p>
+                <div class="engagement-usecase">Use case: Ongoing oversight for portfolio companies</div>
+            </div>
+        </div>
+        <p class="engagement-note">Engagement scope and pricing discussed on request.</p>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta" id="contact">
+    <div class="container">
+        <div class="cta-content">
+            <div class="accent-bar"></div>
+            <h2>Start a Conversation</h2>
+            <p>We work with a limited number of institutional partners during this pilot phase. If your organisation is evaluating emerging market credit exposure, we welcome a conversation.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-white">Request a Demo</a>
+                <a href="#" class="btn btn-outline-white">Schedule a Call</a>
+            </div>
+            <p class="cta-contact">Or contact us directly: <a href="mailto:info@sentinel.com">info@sentinel.com</a></p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand-group">
+                    <div class="footer-brand">Sentinel</div>
+                    <div class="footer-tagline">Independent Bankability Assessment</div>
+                </div>
+                <div class="footer-links">
+                    <a href="#team">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Analyst Portal</a>
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:info@sentinel.com">info@sentinel.com</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                © 2025 Sentinel. All rights reserved. This site is for informational purposes and does not constitute financial advice.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Navigation scroll effect
+const nav = document.getElementById('nav');
+if (nav) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        
+        // Don't prevent default for href="#" only
+        if (href === '#') {
+            e.preventDefault();
+            return;
+        }
+        
+        const target = document.querySelector(href);
+        if (target) {
+            e.preventDefault();
+            const offsetTop = target.offsetTop - 80; // Account for fixed nav
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+    </script>
+</body>
+</html>
